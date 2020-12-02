@@ -1,0 +1,16 @@
+fsl_lpsci.h:396:24:LPSCI_GetDataRegisterAddress	16	static
+fsl_lpsci.h:409:20:LPSCI_EnableTxDMA	16	static
+fsl_lpsci.h:431:20:LPSCI_EnableRxDMA	16	static
+fsl_dma.h:374:20:DMA_DisableInterrupts	16	static
+fsl_dma.h:441:24:DMA_GetRemainingBytes	16	static
+fsl_dma.h:471:20:DMA_ClearChannelStatusFlags	24	static
+fsl_dma.h:558:20:DMA_StartTransfer	16	static
+fsl_lpsci_dma.c:98:13:LPSCI_TransferSendDMACallback	32	static
+fsl_lpsci_dma.c:120:13:LPSCI_TransferReceiveDMACallback	32	static
+fsl_lpsci_dma.c:142:6:LPSCI_TransferCreateHandleDMA	32	static
+fsl_lpsci_dma.c:195:10:LPSCI_TransferSendDMA	72	static
+fsl_lpsci_dma.c:233:10:LPSCI_TransferReceiveDMA	72	static
+fsl_lpsci_dma.c:271:6:LPSCI_TransferAbortSendDMA	16	static
+fsl_lpsci_dma.c:288:6:LPSCI_TransferAbortReceiveDMA	16	static
+fsl_lpsci_dma.c:305:10:LPSCI_TransferGetSendCountDMA	32	static
+fsl_lpsci_dma.c:321:10:LPSCI_TransferGetReceiveCountDMA	32	static

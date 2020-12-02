@@ -1,0 +1,5 @@
+fsl_clock.h:584:20:CLOCK_EnableClock	24	static
+fsl_clock.h:595:20:CLOCK_DisableClock	24	static
+fsl_dmamux.c:63:17:DMAMUX_GetInstance	24	static
+fsl_dmamux.c:81:6:DMAMUX_Init	16	static
+fsl_dmamux.c:88:6:DMAMUX_Deinit	16	static
