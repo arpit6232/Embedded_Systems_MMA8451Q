@@ -6,7 +6,7 @@
 
 - _Contains_
 Code for Final Project for Principals of Embedded Systems Software, ECEN-5813, Fall 2020
-Only DEBUG and Production Target is considered for this assignment whose goal is setting up an communication with MMA8451Q Sensor
+Only DEBUG Target is considered for this assignment whose goal is setting up an communication with MMA8451Q Sensor. 
 
 - contact arpit.savarkar@colorado.edu
 
@@ -47,15 +47,17 @@ Source Code for this assignment can be found under source /
 
 - The State Machine has only 2 states, "Routine" which updates the LED's in accordance to the Tilt Angles and "Accel" which Flashes LED's according to current Angle, to indicate a Sudden Jerk is detected. The flags linked to these are updated in the IRQ Handlers.
 
-- Motion Detection (Jerk/Jolt) is used to simply alert the main processor that the device is currently in use has caused a sudden acceleration. When the acceleration exceeds a set threshold the motion interrupt is asserted (In this repository it is 4g). A motion can be a fast moving shake or a slow moving tilt. This will depend on the threshold (4g) and timing values configured for the event. The motion detection function is used in this project to analyze static acceleration changes or faster jolts.
+- Motion Detection (Jerk/Jolt) is used to simply alert the main processor that the device is currently in use has caused a sudden acceleration. When the acceleration exceeds a set threshold (4g along the Z-axis) the motion interrupt is asserted (In this repository it is 4g). A motion can be a fast moving shake. This will depend on the threshold (4g) and timing values configured for the event. The motion detection function is used in this project to analyze static acceleration changes or faster jolts.
 
 - RGB LED's on the processor react to the Acceleration values calculating Roll and Pitch with the processor is currently at by changing the Brightness of the Green LED (Roll) and Blue LED (Pitch) relating to higher brightness meaning for higher Angle. 
 
 - Motion Detection for sudden acceleration: A Processor is considered to be in sudden acceleration if at any instant of time the acceleration along the X,Y axis is greater than 2G(G=9.81 m/s^2). The Processor is Configured to cause an interrupt and "FLASH" the LED's with on appropirate color to indicate that sudden acceleration was detected. 
 
-- PWM Brightness for LED's has been 48000 Levels, which increase in brightness as the Processor KL25Z is raised in angles.
+- PWM Brightness for LED's has 48000 Levels, which increase in brightness as the Processor KL25Z is raised in angles.
 
-- The Calculations for PWM, Jerk Constraints can be found in the appropriate code under source directiory. 
+- The Calculations for PWM, Jerk Constraints can be found in the appropriate code under source directiory and are not discussed here in the README. 
+
+- As shown in the video below, MMA8451Q Sensor interacts with the processor using I2C. **Kindly Jerk and hold the KL25Z to the jolted position. The goal here is to flash the LED's for a sudden change in acceleration and not pronounce to the user about detecting multiple jerks. Kindly refer to the video link at the end of the this README to understand what is mentioned here** 
 
 ## Pitch 
 
