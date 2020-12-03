@@ -32,7 +32,7 @@ Source Code for this assignment can be found under source /
 - <b>mma8451q.h - Header file for DataSheet and DataStructures to handle interaction with MMA8451Q sensor. </b>
 - <b>mma8451q.c - DataSheet and DataStructures to handle interaction with MMA8451Q sensor. </b>
 - <b>statemachine.h - Header file of statemachine.c defining State Machine Function Prototypes</b>
-- <b>statemachine.c - File containing Statemachine functionalities implemented in accordance to Traffic Light State Machine </b>
+- <b>statemachine.c - File containing Statemachine functionalities implemented in accordance to Routine Vs Sudden Accleration States. Kindly refer to the image below for the state machine. </b>
 - ![State Machine](Images/statemachine.png) </b>
 - <b>sysclock.h - Header file for Instantiation and functionalities for system clock based on MCG</b>
 - <b>sysclock.c - Instantiation and functionalities for system clock based on MCG</b>
