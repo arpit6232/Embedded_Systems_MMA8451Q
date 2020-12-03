@@ -16,6 +16,7 @@
 #include "i2c.h"
 #include "delay.h"
 #include "assert.h"
+#include "global_defs.h"
 
 int lock_detect=0;
 int i2c_lock=0;
@@ -68,6 +69,8 @@ void I2C_Init()
 
 	// Select high drive mode
 	I2C0->C2 |= (I2C_C2_HDRS_MASK);
+
+	LOG("\n\r Clock Gating and Instantiation for I2C0 Complete");
 }
 
 

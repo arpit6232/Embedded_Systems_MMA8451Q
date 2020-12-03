@@ -14,9 +14,9 @@
 #include "fsl_debug_console.h"
 
 #ifdef DEBUG
-	#define MSG_DEBUG PRINTF
+	#define LOG PRINTF
 #else // non-debug mode - get rid of printing message
-	#define MSG_DEBUG(...)
+	#define LOG(...)
 #endif
 
 #endif /* GLOBAL_DEFS_H_ */

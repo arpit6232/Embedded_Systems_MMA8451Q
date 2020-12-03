@@ -1,4 +1,4 @@
 delay.h:41:20:delay_ms	24	static
 mma8451q.h:229:20:MMA8451Q_InitializeData	16	static
 statemachine.c:57:6:PORTA_IRQHandler	24	static
-statemachine.c:88:6:state_machine	24	static
+statemachine.c:97:6:state_machine	24	static

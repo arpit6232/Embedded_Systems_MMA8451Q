@@ -52,7 +52,7 @@ void InitSysTick() {
 
 	Timer_U32 = 0; // Overall CLock - Initialization Precauton
 	g_program_start = g_timer_start = 0;
-	MSG_DEBUG("\n\r Clock Gating and Initialization of SysTick Complete ");
+	LOG("\n\r Clock Gating and Initialization of SysTick Complete ");
 }
 
 /**

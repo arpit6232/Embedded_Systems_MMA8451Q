@@ -56,6 +56,9 @@ volatile uint8_t flag;
  */
 void PORTA_IRQHandler()
 {
+//	if(flag == 1) {
+//		return;
+//	}
 
     register uint32_t isfr_mma = MMA8451Q_INT_PORT->ISFR;
 
@@ -63,13 +66,19 @@ void PORTA_IRQHandler()
     register uint32_t fromMMA8451Q 	= (isfr_mma & ((1 << MMA8451Q_INT1_PIN) | (1 << MMA8451Q_INT2_PIN)));
 		if (fromMMA8451Q) {
 		PORTA->PCR[14] |= PORT_PCR_ISF_MASK;
+//		// Trasient Mode Clean
 //		uint8_t Int_SourceTrans = I2C_ReadRegister(MMA8451Q_I2CADDR, 0x1E);
+
+		// Motion Mode Clean
 		uint8_t Int_SourceTrans = I2C_ReadRegister(MMA8451Q_I2CADDR, 0x16);
+		if(Int_SourceTrans == 0){
+			flag = 1;
+		}
 
 		/* clear interrupts using BME decorated logical OR store */
 		PORTA->ISFR |= (1 << MMA8451Q_INT1_PIN) | (1 << MMA8451Q_INT2_PIN);
 	}
-		flag =1;
+		flag = 1;
 }
 
 
@@ -96,7 +105,7 @@ void state_machine(void) {
 	// Sets it to default which is Zero
 	MMA8451Q_InitializeData(&acc);
 	int readMMA;
-	MSG_DEBUG("\n\r Initializing Inertial Sensor State Machine");
+	LOG("\n\r Initializing Inertial Sensor State Machine");
 
 
 	while(1) {
@@ -106,7 +115,7 @@ void state_machine(void) {
 			// Begin Standard Routine PWM Based LED functionaing
 			reset_timer();
 			flag = 0;
-			MSG_DEBUG("\n\r Inertial Sensor Acceleration within Bounds");
+			LOG("\n\r ORIENT Device to view Change in Pitch and Roll");
 
 			while(flag != 1) { // While Jerk is not detected
 				LED_RedOff();
@@ -124,8 +133,11 @@ void state_machine(void) {
 			break;
 
 		case s_ACCEL: // Jerk Detected State
+
+//			__disable_irq();
+
 			reset_timer();
-			MSG_DEBUG("\n\r Accelerated too Fast");
+			LOG("\n\r Accelerated too Fast, LED Flashing");
 
 			// Flash LED until timeout when Jerk Detected.
 			while(get_timer() < ACCEL_TIMEOUT) {
@@ -138,6 +150,8 @@ void state_machine(void) {
 			flag = 0;
 			// Update State
 			new_state = s_ROUTINE;
+
+//			__enable_irq();
 		}
 	}
 

@@ -39,7 +39,7 @@ void InitMMA8451Q()
 	Led_Down();
 
 	// Debug Messages
-	MSG_DEBUG("MMA8451Q: initializing ...\r\n");
+	LOG("\r\n MMA8451Q: initializing ...");
 
 	// Turn Off LED which can be due to noise.
     Led_Down();
@@ -70,8 +70,14 @@ void InitMMA8451Q()
 
     /* perform identity check */
     uint8_t id = MMA8451Q_WhoAmI();
-    assert(id = 0x1A);
-    MSG_DEBUG("MMA8451Q: device found.\r\n");
+//    assert(id = 0x1A);
+    if(id == 0x1A) {
+    	assert(1);
+    }
+    else {
+    	assert(0);
+    }
+    LOG("\r\n MMA8451Q: device found.");
 
     // Turn Off LED which can be due to noise
     Led_Down();
@@ -109,10 +115,10 @@ void InitMMA8451Q()
     // Configure for Interrupt Mode and Interrupt on Active Low Reads
     MMA8451Q_SetInterruptMode(configuration, MMA8451Q_INTMODE_OPENDRAIN, MMA8451Q_INTPOL_ACTIVELOW);
 
-    // For Trasient Mode Setup, Acceleratin greater than 2g. Currently Disabled
+////     For Trasient Mode Setup, Acceleratin greater than 2g. Currently Disabled
 //    MMA8451Q_ConfigureInterrupt(configuration, MMA8451Q_INT_TRANS, MMA8451Q_INTPIN_INT2);
 
-    // For Motion Mode Setup, Interrupt when Acceleration in X, Y Axis
+//    // For Motion Mode Setup, Interrupt when Acceleration in X, Y Axis
     MMA8451Q_ConfigureInterrupt(configuration, MMA8451Q_INT_FFMT, MMA8451Q_INTPIN_INT1);
 
     // Publish the configuration over I2C
@@ -132,7 +138,7 @@ void InitMMA8451Q()
 
 
     // Debug Messages
-    MSG_DEBUG("MMA8451Q: configuration done.\r\n");
+    LOG("\r\n MMA8451Q: configuration done.");
 #endif
     Led_Down();
 }

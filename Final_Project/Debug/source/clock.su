@@ -1,4 +1,2 @@
-clock.c:23:6:InitClock	16	static
+clock.c:23:6:InitClock	8	static
 clock.c:34:6:InitTPM	8	static
-clock.c:75:6:TPM0_IRQHandler	8	static
-clock.c:87:6:TPM2_IRQHandler	8	static

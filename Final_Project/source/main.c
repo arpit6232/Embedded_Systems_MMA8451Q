@@ -47,7 +47,6 @@
 #include "pin_mux.h"
 #include "clock_config.h"
 #include "MKL25Z4.h"
-#include "fsl_debug_console.h"
 
 #include "bme.h"
 #include "assert.h"
@@ -85,7 +84,7 @@ void InitI2CArbiter()
     /* configure I2C arbiter
     * The arbiter takes care of pin selection
     */
-    I2CArbiter_PrepareEntry(&i2carbiter_entries[0], MMA8451Q_I2CADDR, 24, 5, 25, 5);
+    I2CArbiter_PrepareEntry(&i2carbiter_entries[0], MMA8451Q_I2CADDR, MMA8451_SCL, MMA8451Q_I2C_MUX, MMA8451Q_SDA, MMA8451Q_I2C_MUX);
     I2CArbiter_Configure(i2carbiter_entries, I2CARBITER_COUNT);
 }
 
@@ -103,7 +102,13 @@ int main(void) {
     BOARD_InitDebugConsole();
 #endif
 
-    PRINTF("Hello World\r\n");
+    /*
+     * Welcome to MMA8451Q Sensor Suite for Acceleration Detection
+     * -> The Code runs in an state machine, which contains two state, PWM Orientation and Jolt detection
+     * -> Jerk /Jolt detected can be seen by Flashed LED.
+     * -> For the sake of simplicity and brevity, kindly Jolt and Hold.
+     *
+     */
 
     /* initialize the core clock and the systick timer */
 //	InitClock();
@@ -118,18 +123,17 @@ int main(void) {
 
 	/* initialize the I2C bus */
 	I2C_Init();
-//	i2c_init();
 
-//	/* initialize I2C arbiter */
+	/* initialize I2C arbiter */
 	InitI2CArbiter();
 
 	/* initialize the Sensor */
 	InitMMA8451Q();
-//	assert(init_mma());
 
 	/* Began the Code */
 	Led_Down();
 
+	/* State Machine */
 	state_machine();
 
     return 0 ;

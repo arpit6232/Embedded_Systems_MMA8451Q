@@ -23,9 +23,9 @@
 void InitClock() {
 
 	// Parameters to set
-	const int xtal = XTAL_FREQ;
-	const int8_t divider = XTAL_PEE_DIVIDE;
-	const int8_t multiplier = XTAL_PEE_UPSCALE;
+//	const int xtal = XTAL_FREQ;
+//	const int8_t divider = XTAL_PEE_DIVIDE;
+//	const int8_t multiplier = XTAL_PEE_UPSCALE;
 
 	// Instantiate Clock to 48 Mhz
 	sysclock_init(); // 48Mhz
@@ -64,26 +64,26 @@ void InitTPM() {
 
 }
 
-/**
- * @brief Interrupt Handlers, for TPM0
- * 			Defaulted to Clear Flags only
- *
- * ​ @param​ ​ none
-​ *
-​ * ​ ​@return​ ​ none
- */
-void TPM0_IRQHandler() {
-	TPM0->SC |= TPM_SC_TOIE_MASK; // reset overflow flag
-}
-
-/**
- * @brief Interrupt Handlers, for TPM2
- * 			Defaulted to Clear Flags only
- *
- * ​ @param​ ​ none
-​ *
-​ * ​ ​@return​ ​ none
- */
-void TPM2_IRQHandler() {
-	TPM2->SC |= TPM_SC_TOIE_MASK; // reset overflow flag
-}
+///**
+// * @brief Interrupt Handlers, for TPM0
+// * 			Defaulted to Clear Flags only
+// *
+// * ​ @param​ ​ none
+//​ *
+//​ * ​ ​@return​ ​ none
+// */
+//void TPM0_IRQHandler() {
+//	TPM0->SC |= TPM_SC_TOIE_MASK; // reset overflow flag
+//}
+//
+///**
+// * @brief Interrupt Handlers, for TPM2
+// * 			Defaulted to Clear Flags only
+// *
+// * ​ @param​ ​ none
+//​ *
+//​ * ​ ​@return​ ​ none
+// */
+//void TPM2_IRQHandler() {
+//	TPM2->SC |= TPM_SC_TOIE_MASK; // reset overflow flag
+//}

@@ -42,6 +42,8 @@ void LED_Init() {
 		RED_PWM = 0;
 		GREEN_PWM = 0;
 		BLUE_PWM = 0;
+
+		LOG("\n\r Clock Gating and Instantiation for LED Complete");
 }
 
 void LED_Red()
@@ -104,13 +106,19 @@ void Led_Down()
 void DoubleFlash()
 {
 	/* Double Flash all Leds to begin*/
-	LED_White();
-	delay_ms(50);
+	for(int i =0; i<2; i++) {
+		LED_White();
+		delay_ms(50);
+		Led_Down();
+		delay_ms(50);
+		LED_White();
+		delay_ms(50);
+		Led_Down();
+	}
+
+
 	Led_Down();
 	delay_ms(50);
-	LED_White();
-	delay_ms(50);
-	Led_Down();
 }
 
 void Control_RGB_LEDs(mma8451q_acc_t *acc) {
@@ -145,7 +153,7 @@ void Control_RGB_LEDs(mma8451q_acc_t *acc) {
 	GREEN_PWM = PWM_Green;
 	BLUE_PWM = PWM_Blue;
 
-	// Debug Prints of Roll and Pitch
-	MSG_DEBUG("\r\n roll: %d, pitch: %d", (int)roll, (int)pitch);
+//	// Debug Prints of Roll and Pitch
+//	LOG("\r\n roll: %d, pitch: %d", (int)roll, (int)pitch);
 }
 

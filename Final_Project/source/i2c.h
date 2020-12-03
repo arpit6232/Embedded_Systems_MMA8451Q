@@ -24,6 +24,9 @@
  * Using Bit Manipulation Engine.
  */
 #define I2C_USE_BME 1
+#define MMA8451_SCL 24
+#define MMA8451Q_SDA 25
+#define MMA8451Q_I2C_MUX 5
 
 
 /**
