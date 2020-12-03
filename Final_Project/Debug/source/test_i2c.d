@@ -1,23 +1,24 @@
-board/clock_config.o board/clock_config.d: ../board/clock_config.c \
- /home/arpit/studies/pes/Final_Project/drivers/fsl_smc.h \
- /home/arpit/studies/pes/Final_Project/drivers/fsl_common.h \
- /home/arpit/studies/pes/Final_Project/CMSIS/fsl_device_registers.h \
+source/test_i2c.o source/test_i2c.d: ../source/test_i2c.c \
+ ../source/test_i2c.h ../source/i2c.h \
  /home/arpit/studies/pes/Final_Project/CMSIS/MKL25Z4.h \
  /home/arpit/studies/pes/Final_Project/CMSIS/core_cm0plus.h \
  /home/arpit/studies/pes/Final_Project/CMSIS/core_cmInstr.h \
  /home/arpit/studies/pes/Final_Project/CMSIS/cmsis_gcc.h \
  /home/arpit/studies/pes/Final_Project/CMSIS/core_cmFunc.h \
  /home/arpit/studies/pes/Final_Project/CMSIS/system_MKL25Z4.h \
+ ../source/delay.h ../source/bme.h ../source/global_defs.h \
+ /home/arpit/studies/pes/Final_Project/utilities/fsl_debug_console.h \
+ /home/arpit/studies/pes/Final_Project/drivers/fsl_common.h \
+ /home/arpit/studies/pes/Final_Project/CMSIS/fsl_device_registers.h \
+ /home/arpit/studies/pes/Final_Project/CMSIS/MKL25Z4.h \
  /home/arpit/studies/pes/Final_Project/CMSIS/MKL25Z4_features.h \
  /home/arpit/studies/pes/Final_Project/drivers/fsl_clock.h \
- ../board/clock_config.h \
- /home/arpit/studies/pes/Final_Project/drivers/fsl_common.h
+ /home/arpit/studies/pes/Final_Project/drivers/fsl_common.h \
+ ../source/mma8451q.h
 
-/home/arpit/studies/pes/Final_Project/drivers/fsl_smc.h:
+../source/test_i2c.h:
 
-/home/arpit/studies/pes/Final_Project/drivers/fsl_common.h:
-
-/home/arpit/studies/pes/Final_Project/CMSIS/fsl_device_registers.h:
+../source/i2c.h:
 
 /home/arpit/studies/pes/Final_Project/CMSIS/MKL25Z4.h:
 
@@ -31,10 +32,24 @@ board/clock_config.o board/clock_config.d: ../board/clock_config.c \
 
 /home/arpit/studies/pes/Final_Project/CMSIS/system_MKL25Z4.h:
 
+../source/delay.h:
+
+../source/bme.h:
+
+../source/global_defs.h:
+
+/home/arpit/studies/pes/Final_Project/utilities/fsl_debug_console.h:
+
+/home/arpit/studies/pes/Final_Project/drivers/fsl_common.h:
+
+/home/arpit/studies/pes/Final_Project/CMSIS/fsl_device_registers.h:
+
+/home/arpit/studies/pes/Final_Project/CMSIS/MKL25Z4.h:
+
 /home/arpit/studies/pes/Final_Project/CMSIS/MKL25Z4_features.h:
 
 /home/arpit/studies/pes/Final_Project/drivers/fsl_clock.h:
 
-../board/clock_config.h:
-
 /home/arpit/studies/pes/Final_Project/drivers/fsl_common.h:
+
+../source/mma8451q.h:

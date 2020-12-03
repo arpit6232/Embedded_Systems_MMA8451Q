@@ -562,31 +562,3 @@ void read_full_xyz(mma8451q_acc_t *acc)
 	acc->xyz[1] = temp[1]/4;
 	acc->xyz[2] = temp[2]/4;
 }
-
-
-//int init_mma()
-//{
-//	//set active mode, 14 bit samples and 800 Hz ODR
-//	i2c_write_byte(MMA_ADDR, MMA8451Q_REG_CTRL_REG1, 0x01);
-//	MMA8451Q_INT_PORT->PCR[MMA8451Q_INT1_PIN] = PORT_PCR_MUX(0x1) | PORT_PCR_IRQC(0xA) | PORT_PCR_PE_MASK | PORT_PCR_PS_MASK; /* interrupt on falling edge, pull-up for open drain/active low line */
-////	MMA8451Q_INT_GPIO->PDDR &= ~(GPIO_PDDR_PDD(1 << MMA8451Q_INT1_PIN) | GPIO_PDDR_PDD(1 << MMA8451Q_INT2_PIN));
-//	MMA8451Q_INT_GPIO->PDDR &= ~(GPIO_PDDR_PDD(1 << MMA8451Q_INT1_PIN));
-//
-//
-//	//    MMA8451Q_REG_CTRL_REG5
-//	I2C_WriteRegister(MMA8451Q_I2CADDR, MMA8451Q_REG_CTRL_REG1, 0x00);
-//	I2C_WriteRegister(MMA8451Q_I2CADDR, MMA8451Q_REG_CTRL_REG3, 0x00);             // Push-pull, active low interrupt
-//	I2C_WriteRegister(MMA8451Q_I2CADDR, MMA8451Q_REG_CTRL_REG4, 0x01);             // Enable DRDY interrupt
-//	I2C_WriteRegister(MMA8451Q_I2CADDR, MMA8451Q_REG_CTRL_REG5, 0x01);             // DRDY interrupt routed to INT1 -
-//
-////    MMA8451Q_StoreConfiguration(configuration);
-////    MMA8451Q_EnterActiveMode();
-//
-//
-//
-//	//    /* prepare interrupts for pin change / PORTA */
-//	NVIC_SetPriority(PORTA_IRQn, 2); // 0, 1, 2, or 3
-//	NVIC_ClearPendingIRQ(PORTA_IRQn);
-//	NVIC_EnableIRQ(PORTA_IRQn);
-//	return 1;
-//}

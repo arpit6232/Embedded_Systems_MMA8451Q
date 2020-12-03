@@ -65,6 +65,8 @@
 #include "mma8451q.h"
 #include "statemachine.h"
 
+#include "test_i2c.h"
+
 
 #define I2CARBITER_COUNT 	(1)					/*< Number of I2C devices we're talking to */
 i2carbiter_entry_t i2carbiter_entries[I2CARBITER_COUNT]; /*< Structure for the pin enabling/disabling manager */
@@ -107,11 +109,11 @@ int main(void) {
      * -> The Code runs in an state machine, which contains two state, PWM Orientation and Jolt detection
      * -> Jerk /Jolt detected can be seen by Flashed LED.
      * -> For the sake of simplicity and brevity, kindly Jolt and Hold.
-     *
+     * -> For  I2C TESTING IS IT VITAL THAT THE MICROCONTROLLER IS ON A APPROXIMATELY FLAT GROUND
      */
 
     /* initialize the core clock and the systick timer */
-//	InitClock();
+	InitClock();
 	InitSysTick();
 	InitTPM();
 
@@ -123,6 +125,9 @@ int main(void) {
 
 	/* initialize the I2C bus */
 	I2C_Init();
+
+	// Test I2C - MMA Functionality
+	test_i2c_mma();
 
 	/* initialize I2C arbiter */
 	InitI2CArbiter();

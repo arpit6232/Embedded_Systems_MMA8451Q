@@ -28,6 +28,7 @@
 
 #include "global_defs.h"
 
+#define MMA_ISR_PIN 14
 
 /* Structure for State Handling */
 struct mma_state_t{
@@ -65,7 +66,7 @@ void PORTA_IRQHandler()
 	/* check MMA8451Q */
     register uint32_t fromMMA8451Q 	= (isfr_mma & ((1 << MMA8451Q_INT1_PIN) | (1 << MMA8451Q_INT2_PIN)));
 		if (fromMMA8451Q) {
-		PORTA->PCR[14] |= PORT_PCR_ISF_MASK;
+		PORTA->PCR[MMA_ISR_PIN] |= PORT_PCR_ISF_MASK;
 //		// Trasient Mode Clean
 //		uint8_t Int_SourceTrans = I2C_ReadRegister(MMA8451Q_I2CADDR, 0x1E);
 

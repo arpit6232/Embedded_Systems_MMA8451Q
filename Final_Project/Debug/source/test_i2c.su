@@ -1,0 +1,3 @@
+mma8451q.h:229:20:MMA8451Q_InitializeData	16	static
+test_i2c.c:20:6:i2c_test_setup	72	static
+test_i2c.c:49:6:test_i2c_mma	8	static
