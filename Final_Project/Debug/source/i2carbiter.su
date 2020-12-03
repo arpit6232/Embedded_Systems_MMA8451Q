@@ -1,3 +1,3 @@
-i2carbiter.c:44:6:I2CArbiter_PrepareEntry	32	static
-i2carbiter.c:70:6:I2CArbiter_Configure	16	static
-i2carbiter.c:86:9:I2CArbiter_Select	48	static
+i2carbiter.c:44:6:I2CArbiter_PrepareEntry	12	static
+i2carbiter.c:86:9:I2CArbiter_Select	28	static
+i2carbiter.c:70:6:I2CArbiter_Configure	8	static

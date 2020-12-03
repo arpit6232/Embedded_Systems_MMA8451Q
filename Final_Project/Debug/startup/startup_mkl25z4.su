@@ -1,11 +1,11 @@
-startup_mkl25z4.c:265:6:data_init	8	static
-startup_mkl25z4.c:274:6:bss_init	0	static
-startup_mkl25z4.c:299:6:ResetISR	8	static
 startup_mkl25z4.c:381:14:NMI_Handler	0	static
 startup_mkl25z4.c:385:14:HardFault_Handler	0	static
 startup_mkl25z4.c:389:14:SVC_Handler	0	static
 startup_mkl25z4.c:393:14:PendSV_Handler	0	static
 startup_mkl25z4.c:397:14:SysTick_Handler	0	static
+startup_mkl25z4.c:265:6:data_init	8	static
+startup_mkl25z4.c:274:6:bss_init	0	static
+startup_mkl25z4.c:299:6:ResetISR	8	static
 startup_mkl25z4.c:405:14:IntDefaultHandler	0	static
 startup_mkl25z4.c:415:14:DMA0_IRQHandler	8	static
 startup_mkl25z4.c:419:14:DMA1_IRQHandler	8	static

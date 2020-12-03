@@ -1,9 +1,1 @@
-core_cm0plus.h:745:22:NVIC_EnableIRQ	16	static
-core_cm0plus.h:791:22:NVIC_ClearPendingIRQ	16	static
-core_cm0plus.h:804:22:NVIC_SetPriority	24	static
-delay.h:41:20:delay_ms	24	static
-mma8451q.h:267:20:MMA8451Q_EnterPassiveMode	8	static
-mma8451q.h:275:20:MMA8451Q_Reset	8	static
-mma8451q.h:284:20:MMA8451Q_EnterActiveMode	8	static
-mma8451q.h:301:23:MMA8451Q_WhoAmI	8	static
-init_sensors.c:33:6:InitMMA8451Q	24	static
+init_sensors.c:33:6:InitMMA8451Q	8	static
