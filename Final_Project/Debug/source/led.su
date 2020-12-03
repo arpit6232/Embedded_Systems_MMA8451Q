@@ -5,5 +5,5 @@ led.c:69:6:LED_Blue	0	static
 led.c:80:6:LED_White	0	static
 led.c:88:6:LED_Off	0	static
 led.c:96:6:Led_Down	0	static
-led.c:106:6:DoubleFlash	24	static
+led.c:106:6:DoubleFlash	20	static
 led.c:124:6:Control_RGB_LEDs	32	static

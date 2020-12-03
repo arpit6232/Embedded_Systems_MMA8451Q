@@ -46,7 +46,7 @@
 ​ *
 ​ * ​ ​@return​ ​ none
  */
-#define LED_RedOff()	TPM2->CONTROLS[0].CnV = 0;
+#define LED_RedOn()	TPM2->CONTROLS[0].CnV = 0;
 
 /**
  * @brief Enables the red LED
@@ -55,7 +55,7 @@
 ​ *
 ​ * ​ ​@return​ ​ none
  */
-#define LED_RedOn()		TPM2->CONTROLS[0].CnV = FULL_BRIGHTNESS;
+#define LED_RedOff()		TPM2->CONTROLS[0].CnV = FULL_BRIGHTNESS;
 
 /**
  * @brief Enables the green LED

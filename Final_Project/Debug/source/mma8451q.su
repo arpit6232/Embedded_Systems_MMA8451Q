@@ -11,7 +11,7 @@ mma8451q.c:235:6:MMA8451Q_SetSensitivity	8	static
 mma8451q.c:255:6:MMA8451Q_SetInterruptMode	8	static
 mma8451q.c:279:6:MMA8451Q_ConfigureInterrupt	8	static
 mma8451q.c:312:6:MMA8451Q_ClearInterruptConfiguration	8	static
-mma8451q.c:332:6:MMA8451Q_FetchConfiguration	8	static
-mma8451q.c:430:6:MMA8451Q_StoreConfiguration	8	static
+mma8451q.c:332:6:MMA8451Q_FetchConfiguration	24	static
+mma8451q.c:430:6:MMA8451Q_StoreConfiguration	24	static
 mma8451q.c:525:6:convert_xyz_to_roll_pitch	32	static
 mma8451q.c:540:6:read_full_xyz	24	static

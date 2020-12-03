@@ -1,9 +1,9 @@
 i2c.c:26:6:I2C_Init	8	static
 i2c.c:77:6:i2c_init	0	static
-i2c.c:104:9:I2C_ReadRegister	8	static
+i2c.c:104:9:I2C_ReadRegister	20	static
 i2c.c:209:6:I2C_ReadRegisters	32	static
-i2c.c:228:6:I2C_WriteRegister	12	static
-i2c.c:257:9:I2C_ModifyRegister	20	static
+i2c.c:228:6:I2C_WriteRegister	24	static
+i2c.c:257:9:I2C_ModifyRegister	32	static
 i2c.c:302:6:I2C_ResetBus	0	static
 i2c.c:313:6:I2C_InitiateRegisterReadAt	8	static
 i2c.c:332:6:i2c_busy	20	static

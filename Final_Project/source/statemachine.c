@@ -118,7 +118,7 @@ void state_machine(void) {
 			LOG("\n\r ORIENT Device to view Change in Pitch and Roll");
 
 			while(flag != 1) { // While Jerk is not detected
-				LED_RedOff();
+				LED_RedOn();
 				readMMA = 1;
 
 				// This functionality is provided so as to replace
@@ -134,8 +134,6 @@ void state_machine(void) {
 
 		case s_ACCEL: // Jerk Detected State
 
-//			__disable_irq();
-
 			reset_timer();
 			LOG("\n\r Accelerated too Fast, LED Flashing");
 
@@ -150,8 +148,6 @@ void state_machine(void) {
 			flag = 0;
 			// Update State
 			new_state = s_ROUTINE;
-
-//			__enable_irq();
 		}
 	}
 

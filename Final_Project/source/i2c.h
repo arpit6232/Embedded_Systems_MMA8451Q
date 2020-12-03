@@ -151,7 +151,41 @@ __STATIC_INLINE void I2C_Wait()
  */
 __STATIC_INLINE void I2C_WaitWhileBusy()
 {
-	while((I2C0->S & I2C_S_BUSY_MASK)!=0) {}
+//	while((I2C0->S & I2C_S_BUSY_MASK)!=0) {}
+	I2C0->C1 &= ~I2C_C1_IICEN_MASK;
+	I2C_TRAN;
+	I2C_M_START;
+	I2C0->C1 |=  I2C_C1_IICEN_MASK;
+	// Write to clear line
+	I2C0->C1 |= I2C_C1_MST_MASK; /* set MASTER mode */
+	I2C0->C1 |= I2C_C1_TX_MASK; /* Set transmit (TX) mode */
+	I2C0->D = 0xFF;
+	while ((I2C0->S & I2C_S_IICIF_MASK) == 0U) {
+	} /* wait interrupt */
+	I2C0->S |= I2C_S_IICIF_MASK; /* clear interrupt bit */
+
+
+							/* Clear arbitration error flag*/
+	I2C0->S |= I2C_S_ARBL_MASK;
+
+
+							/* Send start */
+	I2C0->C1 &= ~I2C_C1_IICEN_MASK;
+	I2C0->C1 |= I2C_C1_TX_MASK; /* Set transmit (TX) mode */
+	I2C0->C1 |= I2C_C1_MST_MASK; /* START signal generated */
+
+	I2C0->C1 |= I2C_C1_IICEN_MASK;
+							/*Wait until start is send*/
+
+							/* Send stop */
+	I2C0->C1 &= ~I2C_C1_IICEN_MASK;
+	I2C0->C1 |= I2C_C1_MST_MASK;
+	I2C0->C1 &= ~I2C_C1_MST_MASK; /* set SLAVE mode */
+	I2C0->C1 &= ~I2C_C1_TX_MASK; /* Set Rx */
+	I2C0->C1 |= I2C_C1_IICEN_MASK;
+
+	I2C0->S |= I2C_S_IICIF_MASK; /* wait */
+	I2C0->S |= I2C_S_ARBL_MASK; /* Clear arbitration error & interrupt flag*/
 }
 
 
