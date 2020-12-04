@@ -13,7 +13,8 @@ source/led.o source/led.d: ../source/led.c ../source/led.h \
  /home/arpit/studies/pes/Final_Project/CMSIS/MKL25Z4.h \
  /home/arpit/studies/pes/Final_Project/CMSIS/MKL25Z4_features.h \
  /home/arpit/studies/pes/Final_Project/drivers/fsl_clock.h \
- /home/arpit/studies/pes/Final_Project/drivers/fsl_common.h
+ /home/arpit/studies/pes/Final_Project/drivers/fsl_common.h \
+ ../source/systick.h
 
 ../source/led.h:
 
@@ -54,3 +55,5 @@ source/led.o source/led.d: ../source/led.c ../source/led.h \
 /home/arpit/studies/pes/Final_Project/drivers/fsl_clock.h:
 
 /home/arpit/studies/pes/Final_Project/drivers/fsl_common.h:
+
+../source/systick.h:

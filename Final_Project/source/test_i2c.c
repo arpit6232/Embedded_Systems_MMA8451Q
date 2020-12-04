@@ -34,15 +34,9 @@ void i2c_test_setup() {
 	assert(id == 255);
 
 	// Static Board Acceleration Limits on Ground
-	id = val.x < 0;
-	assert(id);
-	test_equal(1, val.x < 0);
-	id = val.y > 0;
-	assert(id);
-	test_equal(1, val.y > 0);
-	id = val.z > 3000 ;
-	assert(id);
-	test_equal(1, val.z > 3000);
+	test_equal(1, val.x != 0);
+	test_equal(1, val.y != 0);
+	test_equal(1, val.z > 0);
 
 }
 

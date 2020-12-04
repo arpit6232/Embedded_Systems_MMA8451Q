@@ -20,6 +20,7 @@
 #include "delay.h"
 #include "clock.h"
 #include "global_defs.h"
+#include "systick.h"
 
 
 void LED_Init() {
@@ -154,6 +155,7 @@ void Control_RGB_LEDs(mma8451q_acc_t *acc) {
 	BLUE_PWM = PWM_Blue;
 
 //	// Debug Prints of Roll and Pitch
-//	LOG("\r\n roll: %d, pitch: %d", (int)roll, (int)pitch);
+//	if(get_timer() % 1000 == 0) {
+//		LOG("\r\n roll: %d , pitch: %d ", (int)roll, (int)pitch);
+//	}
 }
-

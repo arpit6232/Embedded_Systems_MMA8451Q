@@ -389,7 +389,6 @@ void MMA8451Q_FetchConfiguration(mma8451q_confreg_t *const configuration)
 	/* bulk-read through the next registers */
 	configuration->FF_MT_THS = I2C_ReceiveDriving();
 	configuration->FF_MT_COUNT = I2C_ReceiveDriving();
-
 	I2C_ReceiverModeDriveClock(); /* skip 4 registers */
 	I2C_ReceiverModeDriveClock();
 	I2C_ReceiverModeDriveClock();

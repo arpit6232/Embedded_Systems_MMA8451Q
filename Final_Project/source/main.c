@@ -41,7 +41,7 @@
  * @file    Final_Project.c
  * @brief   Application entry point.
  */
-#include <stdio.h>
+//#include <stdio.h>
 #include "board.h"
 #include "peripherals.h"
 #include "pin_mux.h"
@@ -66,6 +66,7 @@
 #include "statemachine.h"
 
 #include "test_i2c.h"
+#include "global_defs.h"
 
 
 #define I2CARBITER_COUNT 	(1)					/*< Number of I2C devices we're talking to */
@@ -88,6 +89,8 @@ void InitI2CArbiter()
     */
     I2CArbiter_PrepareEntry(&i2carbiter_entries[0], MMA8451Q_I2CADDR, MMA8451_SCL, MMA8451Q_I2C_MUX, MMA8451Q_SDA, MMA8451Q_I2C_MUX);
     I2CArbiter_Configure(i2carbiter_entries, I2CARBITER_COUNT);
+
+    LOG("\r\n Interrupt Enabled for Jolt Detection on PORT A");
 }
 
 /*
@@ -104,36 +107,59 @@ int main(void) {
     BOARD_InitDebugConsole();
 #endif
 
-    /*
-     * Welcome to MMA8451Q Sensor Suite for Acceleration Detection
-     * -> The Code runs in an state machine, which contains two state, PWM Orientation and Jolt detection
-     * -> Jerk /Jolt detected can be seen by Flashed LED.
-     * -> For the sake of simplicity and brevity, kindly Jolt and Hold.
-     * -> For  I2C TESTING IS IT VITAL THAT THE MICROCONTROLLER IS ON A APPROXIMATELY FLAT GROUND
-     */
 
-    /* initialize the core clock and the systick timer */
+    LOG("************************************************************************************ \r\n");
+    LOG("\r\n Welcome to MMA8451Q Sensor Suite for Acceleration Detection");
+    LOG("\r\n ->  The Code runs in an state machine, which contains ");
+    LOG("\r\n 		two state for PWM Orientation and Jolt detection respectively");
+    LOG("\r\n -> For Jerk Detection Kindly Jolt kindly shake the Microcontroller");
+    LOG("\r\n -> LED's light up according roll and pitch orientation of the microcontroller");
+    LOG("\r\n ************************************************************************************");
+
+    LOG("\r\n");
+    LOG("\r\n");
+    LOG("\r\n");
+
+
+    /* Initialize Core Clock*/
 	InitClock();
+
+	 /* initialize systick timer */
 	InitSysTick();
+
+	/* Initialize PWM on LED Ports*/
 	InitTPM();
+	delay_ms(500);
 
 	/* initialize the RGB led */
 	LED_Init();
+	delay_ms(500);
 
 	/* Began the Code */
 	DoubleFlash();
+	Led_Down();
 
 	/* initialize the I2C bus */
 	I2C_Init();
+	delay_ms(500);
 
 	// Test I2C - MMA Functionality
 	test_i2c_mma();
+	delay_ms(500);
+
+	LOG(" \r\n ************************************************************************************");
+	LOG("\r\n Kindly Follow the Manual Test Routine as in Manual_Test_Routine.pdf");
+	LOG("\r\n ************************************************************************************");
+
+	LOG("\r\n");
 
 	/* initialize I2C arbiter */
 	InitI2CArbiter();
+	delay_ms(500);
 
 	/* initialize the Sensor */
 	InitMMA8451Q();
+	delay_ms(500);
 
 	/* Began the Code */
 	Led_Down();

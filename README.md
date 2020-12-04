@@ -59,6 +59,9 @@ Source Code for this assignment can be found under source /
 
 - As shown in the video below, MMA8451Q Sensor interacts with the processor using I2C. **Kindly Jerk and hold the KL25Z to the jolted position. The goal here is to flash the LED's for a sudden change in acceleration and not pronounce to the user about detecting multiple jerks. Kindly refer to the video link at the end of the this README to understand what is mentioned here** 
 
+## Manual Test Routine
+ Refer to the [Manual Test Routine!](https://github.com/user/repo/blob/branch/other_file.md)
+
 ## Pitch 
 
 - ![Pitch](Images/Pitch.png) </b>

@@ -11,24 +11,19 @@
  *		Links:  https://github.com/alexander-g-dean/ESF/tree/master/NXP/Code/Chapter_7/PWM_LED
  */
 
-#include "stdint.h"
 #include "clock.h"
 #include "sysclock.h"
 #include "MKL25Z4.h"
-#include "stdio.h"
 #include "stdint.h"
-#include "stdbool.h"
+#include "global_defs.h"
 
 
 void InitClock() {
 
-	// Parameters to set
-//	const int xtal = XTAL_FREQ;
-//	const int8_t divider = XTAL_PEE_DIVIDE;
-//	const int8_t multiplier = XTAL_PEE_UPSCALE;
-
 	// Instantiate Clock to 48 Mhz
 	sysclock_init(); // 48Mhz
+
+	LOG("\n\r Crystal Master Clock Instantiated at 48 Mhz");
 }
 
 void InitTPM() {
@@ -62,28 +57,7 @@ void InitTPM() {
 	TPM2->CONTROLS[1].CnV = 0;
 	TPM0->CONTROLS[1].CnV = 0;
 
+	LOG("\n\r Clock Gating and Instantiation for PWM Complete");
+
 }
 
-///**
-// * @brief Interrupt Handlers, for TPM0
-// * 			Defaulted to Clear Flags only
-// *
-// * ​ @param​ ​ none
-//​ *
-//​ * ​ ​@return​ ​ none
-// */
-//void TPM0_IRQHandler() {
-//	TPM0->SC |= TPM_SC_TOIE_MASK; // reset overflow flag
-//}
-//
-///**
-// * @brief Interrupt Handlers, for TPM2
-// * 			Defaulted to Clear Flags only
-// *
-// * ​ @param​ ​ none
-//​ *
-//​ * ​ ​@return​ ​ none
-// */
-//void TPM2_IRQHandler() {
-//	TPM2->SC |= TPM_SC_TOIE_MASK; // reset overflow flag
-//}
