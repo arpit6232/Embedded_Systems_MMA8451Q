@@ -70,7 +70,7 @@ void Init_UART0(uint32_t baud_rate) {
 
 	// Set UART clock to 48 MHz clock
 	SIM->SOPT2 |= SIM_SOPT2_UART0SRC(1);
-	SIM->SOPT2 |= SIM_SOPT2_PLLFLLSEL_MASK;
+//	SIM->SOPT2 |= SIM_SOPT2_PLLFLLSEL_MASK;
 
 	// Set pins to UART0 Rx and Tx
 	PORTA->PCR[1] = PORT_PCR_ISF_MASK | PORT_PCR_MUX(2); // Rx

@@ -102,7 +102,7 @@ void SysTick_Handler() {
 
 	Timer_U32++; // Keep Track of the total timer
 
-	if(Timer_U32 % 2000 == 0) {
+	if(Timer_U32 % 1000 == 0) {
 		flag_log = 1;
 	}
 	else {

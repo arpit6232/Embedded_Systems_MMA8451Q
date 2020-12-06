@@ -41,10 +41,6 @@
  * @file    Final_Project.c
  * @brief   Application entry point.
  */
-#include "board.h"
-#include "peripherals.h"
-#include "pin_mux.h"
-#include "clock_config.h"
 #include "MKL25Z4.h"
 
 #include "bme.h"
@@ -103,11 +99,6 @@ void InitI2CArbiter()
  */
 int main(void) {
 
-  	/* Init board hardware. */
-    BOARD_InitBootPins();
-    BOARD_InitBootClocks();
-    BOARD_InitBootPeripherals();
-
     /* Initialize Core Clock*/
     InitClock();
 
@@ -165,6 +156,10 @@ int main(void) {
 
 	/* Began the Code */
 	Led_Down();
+
+	LOG("\r\n ************************************************************************************");
+	LOG("\r\n Orient Device to View Change in Orientation over LED");
+	LOG("\r\n ************************************************************************************");
 
 	/* State Machine */
 	state_machine();
