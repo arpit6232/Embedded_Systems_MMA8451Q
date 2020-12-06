@@ -54,7 +54,7 @@ Source Code for this assignment can be found under source /
 
 - The State Machine has only 2 states, "Routine" which updates the LED's in accordance to the Tilt Angles and "Accel" which Flashes LED's according to current Angle, to indicate a Sudden Jerk is detected. The flags linked to these are updated in the IRQ Handlers.
 
-- Motion Detection (Jerk/Jolt) is used to simply alert the main processor that the device is currently in use has caused a sudden acceleration. When the acceleration exceeds a set threshold (4g along the Z-axis) the motion interrupt is asserted (In this repository it is 4g). A motion can be a fast moving shake. This will depend on the threshold (4g) and timing values configured for the event. The motion detection function is used in this project to analyze static acceleration changes or faster jolts.
+- Motion Detection (Jerk/Jolt) is used to simply alert the main processor that the device is currently in use has caused a sudden acceleration. When the acceleration exceeds a set threshold (2g along the Z-axis) the motion interrupt is asserted (In this repository it is 2g). A motion can be a fast moving shake. This will depend on the threshold (2g) and timing values configured for the event. The motion detection function is used in this project to analyze static acceleration changes or faster jolts.
 
 - RGB LED's on the processor react to the Acceleration values calculating Roll and Pitch with the processor is currently at by changing the Brightness of the Green LED (Roll) and Blue LED (Pitch) relating to higher brightness meaning for higher Angle. 
 
@@ -64,27 +64,33 @@ Source Code for this assignment can be found under source /
 
 - The Calculations for PWM, Jerk Constraints can be found in the appropriate code under source directiory and are not discussed here in the README. 
 
-- The Communication for Logging And Interaction with the processor is done 115200 Baud Rate over UART.
+- The Communication for Logging And Interaction with the processor is done 115200 Baud Rate, 8 Bit Parity, 1 Stop-Bit over UART.
 
 - As shown in the video below, MMA8451Q Sensor interacts with the processor using I2C. **Kindly Jerk and hold the KL25Z to the jolted position. The goal here is to flash the LED's for a sudden change in acceleration and not pronounce to the user about detecting multiple jerks. Kindly refer to the video link at the end of the this README to understand what is mentioned here** 
 
 ## Manual Test Routine
  Refer to the  [![Manual Test Routine!](https://github.com/arpit6232/Embedded_Systems_MMA8451Q/blob/main/Manual_Test_Routine.pdf) for the manual Test cases routine, required for QA Testing.
 
-## Pitch 
+## Images of the Project over LED's
+
+### Pitch 
 
 - ![Pitch](Images/Pitch.png) </b>
 
 - [![Video Link for Pitch Action](https://www.youtube.com/watch?v=Aki_wWMmv28)](https://www.youtube.com/watch?v=Aki_wWMmv28)
 
-## Roll 
+### Roll 
 
 - ![Roll](Images/Roll.png) </b>
 
 - [![Video Link for Roll Action](https://www.youtube.com/watch?v=g3Y2SueXwnY&feature=youtu.be)](https://www.youtube.com/watch?v=g3Y2SueXwnY&feature=youtu.be)
 
-## Sudden Jerk/Acceleration
+### Sudden Jerk/Acceleration
 
 - [![Video Link for Jerk/Jolt Action](https://www.youtube.com/watch?v=ZswreGJfLNE&feature=youtu.be)](https://www.youtube.com/watch?v=ZswreGJfLNE&feature=youtu.be)
+
+### Screen Output over UART
+
+- ![Terminal Output over UART](Images/Screen_Output.png) </b>
 
 
