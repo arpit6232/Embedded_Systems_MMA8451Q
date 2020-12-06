@@ -1,5 +1,5 @@
 /*
- * init_sensors.h
+ * mma8451q.c
  *
  *  Created on: Nov 23, 2020
  *      Author: Arpit Savarkar

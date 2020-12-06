@@ -1,9 +1,12 @@
 /*
- * test_i2c.h
+ * test_i2c.c
  *
  *  Created on: Dec 3, 2020
- *      Author: root
+ *      Author: Arpit Savarkar
+ *
+ *   @brief Header file for test cases to test I2C
  */
+
 
 #ifndef TEST_I2C_H_
 #define TEST_I2C_H_
