@@ -15,7 +15,7 @@
 #include "clock.h"
 #include "systick.h"
 #include "delay.h"
-#include "buffer.h"
+//#include "buffer.h"
 #include "math.h"
 
 #include "i2c.h"

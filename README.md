@@ -38,6 +38,13 @@ Source Code for this assignment can be found under source /
 - <b>sysclock.c - Instantiation and functionalities for system clock based on MCG</b>
 - <b>systick.h - Header File for Mangement of Sytick Timer and Interrupt </b>
 - <b>systick.c - Sytick Timer every millisecond and Intrrupt </b>
+- <b>queue.h - Header file which contains the function prototypes and enumerators needed for queue.c<b>
+- <b>queue.c - The main script for instantiating and testing a Circular Buffer based Queue <b>
+- <b>test_queue.h - Header file which contains the function prototypes and enumerators needed for test_queue.h <b>
+- <b>test_queue.c - Function prototypes and enumerators needed for test_queue.h <b>
+- <b>UART.h - Header file which contains the function prototypes and enumerators needed for UART.c
+- <b>UART.c - The main script for instantiating UART functionalities and handling Interfacing with the user 
+
 
 ## Project Comments
 
@@ -56,6 +63,8 @@ Source Code for this assignment can be found under source /
 - PWM Brightness for LED's has 48000 Levels, which increase in brightness as the Processor KL25Z is raised in angles.
 
 - The Calculations for PWM, Jerk Constraints can be found in the appropriate code under source directiory and are not discussed here in the README. 
+
+- The Communication for Logging And Interaction with the processor is done 115200 Baud Rate over UART.
 
 - As shown in the video below, MMA8451Q Sensor interacts with the processor using I2C. **Kindly Jerk and hold the KL25Z to the jolted position. The goal here is to flash the LED's for a sudden change in acceleration and not pronounce to the user about detecting multiple jerks. Kindly refer to the video link at the end of the this README to understand what is mentioned here** 
 

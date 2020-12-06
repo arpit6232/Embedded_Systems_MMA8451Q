@@ -12,6 +12,7 @@
 #include "test_i2c.h"
 #include "mma8451q.h"
 #include "assert.h"
+#include "global_defs.h"
 
 static int g_tests_passed = 0;
 static int g_tests_total = 0;
@@ -48,8 +49,8 @@ void test_i2c_mma() {
 
 	i2c_test_setup();
 
-	PRINTF("\r\n %s: passed %d/%d test cases", __FUNCTION__, g_tests_passed, g_tests_total);
+	LOG("\r\n %s: passed %d/%d test cases", __FUNCTION__, g_tests_passed, g_tests_total);
 
-	PRINTF("\r\n");
+	LOG("\r\n");
 
 }

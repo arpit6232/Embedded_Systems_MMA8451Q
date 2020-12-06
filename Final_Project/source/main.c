@@ -41,7 +41,6 @@
  * @file    Final_Project.c
  * @brief   Application entry point.
  */
-//#include <stdio.h>
 #include "board.h"
 #include "peripherals.h"
 #include "pin_mux.h"
@@ -54,11 +53,11 @@
 #include "systick.h"
 #include "systick.h"
 #include "delay.h"
-#include "buffer.h"
 #include "math.h"
 
 #include "i2c.h"
 #include "i2carbiter.h"
+#include "uart.h"
 #include "led.h"
 
 #include "init_sensors.h"
@@ -67,15 +66,21 @@
 
 #include "test_i2c.h"
 #include "global_defs.h"
+#include "test_queue.h"
 
 
-#define I2CARBITER_COUNT 	(1)					/*< Number of I2C devices we're talking to */
-i2carbiter_entry_t i2carbiter_entries[I2CARBITER_COUNT]; /*< Structure for the pin enabling/disabling manager */
+/************************************************************************/
+/* UART Configurations                                                  */
+/************************************************************************/
+#define UART_BAUDRATE	115200
 
 
 /************************************************************************/
 /* I2C arbiter configuration                                            */
 /************************************************************************/
+
+#define I2CARBITER_COUNT 	(1)					/*< Number of I2C devices we're talking to */
+i2carbiter_entry_t i2carbiter_entries[I2CARBITER_COUNT]; /*< Structure for the pin enabling/disabling manager */
 
 void InitI2CArbiter()
 {
@@ -102,13 +107,39 @@ int main(void) {
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
     BOARD_InitBootPeripherals();
-#ifndef BOARD_INIT_DEBUG_CONSOLE_PERIPHERAL
-    /* Init FSL debug console. */
-    BOARD_InitDebugConsole();
-#endif
 
+    /* Initialize Core Clock*/
+    InitClock();
 
-    LOG("************************************************************************************ \r\n");
+    /* Initialize UART */
+    Init_UART0(UART_BAUDRATE);
+    test_queue();
+
+    /* initialize systick timer */
+   	InitSysTick();
+   	delay_ms(500);
+
+   	/* Initialize PWM on LED Ports*/
+   	InitTPM();
+   	delay_ms(500);
+
+   	/* initialize the RGB led */
+   	LED_Init();
+   	delay_ms(500);
+
+   	/* Began the Code */
+   	DoubleFlash();
+   	Led_Down();
+
+   	/* initialize the I2C bus */
+   	I2C_Init();
+   	delay_ms(500);
+
+   	// Test I2C - MMA Functionality
+   	test_i2c_mma();
+   	delay_ms(500);
+
+    LOG("\r\n ************************************************************************************");
     LOG("\r\n Welcome to MMA8451Q Sensor Suite for Acceleration Detection");
     LOG("\r\n ->  The Code runs in an state machine, which contains ");
     LOG("\r\n 		two state for PWM Orientation and Jolt detection respectively");
@@ -117,37 +148,8 @@ int main(void) {
     LOG("\r\n ************************************************************************************");
 
     LOG("\r\n");
-    LOG("\r\n");
-    LOG("\r\n");
 
-
-    /* Initialize Core Clock*/
-	InitClock();
-
-	 /* initialize systick timer */
-	InitSysTick();
-
-	/* Initialize PWM on LED Ports*/
-	InitTPM();
-	delay_ms(500);
-
-	/* initialize the RGB led */
-	LED_Init();
-	delay_ms(500);
-
-	/* Began the Code */
-	DoubleFlash();
-	Led_Down();
-
-	/* initialize the I2C bus */
-	I2C_Init();
-	delay_ms(500);
-
-	// Test I2C - MMA Functionality
-	test_i2c_mma();
-	delay_ms(500);
-
-	LOG(" \r\n ************************************************************************************");
+	LOG("\r\n ************************************************************************************");
 	LOG("\r\n Kindly Follow the Manual Test Routine as in Manual_Test_Routine.pdf");
 	LOG("\r\n ************************************************************************************");
 

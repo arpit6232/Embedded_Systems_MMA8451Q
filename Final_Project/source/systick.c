@@ -16,8 +16,8 @@
 #include "MKL25Z4.h"
 #include "sysclock.h"
 #include "systick.h"
-#include "fsl_debug_console.h"
 #include "global_defs.h"
+
 
 /**
  * @brief The system tick counter
@@ -101,4 +101,11 @@ void SysTick_Handler() {
 	freeRunner &= 0b11;
 
 	Timer_U32++; // Keep Track of the total timer
+
+	if(Timer_U32 % 2000 == 0) {
+		flag_log = 1;
+	}
+	else {
+		flag_log = 0;
+	}
 }

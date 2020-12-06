@@ -22,6 +22,7 @@
 #include "global_defs.h"
 #include "systick.h"
 
+int flag_log = 0;
 
 void LED_Init() {
 		// Enable clock to ports B and D
@@ -155,7 +156,8 @@ void Control_RGB_LEDs(mma8451q_acc_t *acc) {
 	BLUE_PWM = PWM_Blue;
 
 //	// Debug Prints of Roll and Pitch
-//	if(get_timer() % 1000 == 0) {
-//		LOG("\r\n roll: %d , pitch: %d ", (int)roll, (int)pitch);
-//	}
+	if(flag_log == 1) {
+		LOG("\r\n roll: %d , pitch: %d ", (int)roll, (int)pitch);
+		flag_log = 0;
+	}
 }

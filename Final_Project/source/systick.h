@@ -14,6 +14,8 @@
 #ifndef SYSTICK_H_
 #define SYSTICK_H_
 
+extern int flag_log;
+
 /**
 * @brief Defines for the system tick behaviour
 */

@@ -11,10 +11,10 @@
 #define GLOBAL_DEFS_H_
 
 #include "stdio.h"
-#include "fsl_debug_console.h"
+//#include "fsl_debug_console.h"
 
 #ifdef DEBUG
-	#define LOG PRINTF
+	#define LOG printf
 #else // non-debug mode - get rid of printing message
 	#define LOG(...)
 #endif

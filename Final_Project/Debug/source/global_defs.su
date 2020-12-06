@@ -1,0 +1,4 @@
+buffer.h:78:31:RingBuffer_Empty	16	static
+buffer.h:127:22:RingBuffer_BlockWhileNotEmpty	16	static
+uart.h:34:20:Uart0_EnableReceiveIrq	8	static
+global_defs.c:21:6:uartIO	8	static

@@ -4,7 +4,6 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../source/buffer.c \
 ../source/clock.c \
 ../source/i2c.c \
 ../source/i2carbiter.c \
@@ -13,14 +12,16 @@ C_SRCS += \
 ../source/main.c \
 ../source/mma8451q.c \
 ../source/mtb.c \
+../source/queue.c \
 ../source/semihost_hardfault.c \
 ../source/statemachine.c \
 ../source/sysclock.c \
 ../source/systick.c \
-../source/test_i2c.c 
+../source/test_i2c.c \
+../source/test_queue.c \
+../source/uart.c 
 
 OBJS += \
-./source/buffer.o \
 ./source/clock.o \
 ./source/i2c.o \
 ./source/i2carbiter.o \
@@ -29,14 +30,16 @@ OBJS += \
 ./source/main.o \
 ./source/mma8451q.o \
 ./source/mtb.o \
+./source/queue.o \
 ./source/semihost_hardfault.o \
 ./source/statemachine.o \
 ./source/sysclock.o \
 ./source/systick.o \
-./source/test_i2c.o 
+./source/test_i2c.o \
+./source/test_queue.o \
+./source/uart.o 
 
 C_DEPS += \
-./source/buffer.d \
 ./source/clock.d \
 ./source/i2c.d \
 ./source/i2carbiter.d \
@@ -45,11 +48,14 @@ C_DEPS += \
 ./source/main.d \
 ./source/mma8451q.d \
 ./source/mtb.d \
+./source/queue.d \
 ./source/semihost_hardfault.d \
 ./source/statemachine.d \
 ./source/sysclock.d \
 ./source/systick.d \
-./source/test_i2c.d 
+./source/test_i2c.d \
+./source/test_queue.d \
+./source/uart.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

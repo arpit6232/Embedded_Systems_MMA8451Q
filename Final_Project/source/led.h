@@ -17,6 +17,7 @@
 #include "MKL25Z4.h"
 #include "clock.h"
 #include "mma8451q.h"
+#include "systick.h"
 
 
 // basic light switch

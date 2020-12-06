@@ -1,2 +1,2 @@
 clock.c:21:6:InitClock	8	static
-clock.c:29:6:InitTPM	8	static
+clock.c:27:6:InitTPM	8	static

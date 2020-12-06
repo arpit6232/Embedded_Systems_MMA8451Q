@@ -22,8 +22,6 @@ void InitClock() {
 
 	// Instantiate Clock to 48 Mhz
 	sysclock_init(); // 48Mhz
-
-	LOG("\n\r Crystal Master Clock Instantiated at 48 Mhz");
 }
 
 void InitTPM() {
