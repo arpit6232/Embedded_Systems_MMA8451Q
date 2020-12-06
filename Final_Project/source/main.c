@@ -125,6 +125,12 @@ int main(void) {
    	I2C_Init();
    	delay_ms(500);
 
+   	LOG("\r\n");
+   	LOG("\r\n I2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2C");
+	LOG("\r\n 3/5 Test Cases for I2C are assumed to pass only over approximattely flat ground");
+	LOG("\r\n I2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2CI2C");
+	LOG("\r\n");
+
    	// Test I2C - MMA Functionality
    	test_i2c_mma();
    	delay_ms(500);

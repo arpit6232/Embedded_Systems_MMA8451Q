@@ -37,7 +37,7 @@ void i2c_test_setup() {
 	// Static Board Acceleration Limits on Ground
 	test_equal(1, val.x != 0);
 	test_equal(1, val.y != 0);
-	test_equal(1, val.z > 0);
+	test_equal(1, val.z != 0);
 
 }
 
