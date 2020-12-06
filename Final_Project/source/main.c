@@ -47,7 +47,6 @@
 #include "assert.h"
 #include "clock.h"
 #include "systick.h"
-#include "systick.h"
 #include "delay.h"
 #include "math.h"
 
